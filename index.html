@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CFM Display - Mock UI</title>
+  <style>
+    body {
+      background-color: #9dd345; /* Matches the green background */
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .cfm-device {
+      background-color: #a19b9b;
+      width: 600px;
+      height: 400px;
+      border: 9px solid #201f1f;
+      border-radius: 8px;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .cfm-device .screen {
+    background-color: #336b31;
+    width: 82%;
+    height: 71%;
+    margin: 38px auto 5px;
+    border: 13px solid #201f1f;
+    border-radius: 6px;
+}
+    .cfm-label {
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ff5c33;
+      color: black;
+      font-weight: bold;
+      padding: 2px 10px;
+      border-radius: 2px;
+      font-size: 20px;
+    }
+
+    .cfm-bottom-label {
+    position: absolute;
+    bottom: 13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: black;
+    font-size: 13px;
+    padding: 2px 6px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    }
+    .cfm-logo {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      font-size: 25px;
+      color: #e03a3a;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="cfm-device">
+    <div class="cfm-label">CFM</div>
+    <div class="screen" id="cfmScreen">
+      <!-- Optional: dynamic content goes here -->
+    </div>
+    <div class="cfm-logo">QpLite</div>
+    <div class="cfm-bottom-label">QPLITE/KOMAX/APR-24/MSWIL/P49/190505</div>
+  </div>
+
+  <script>
+    // Optional: Add dynamic screen data
+    document.getElementById("cfmScreen").innerHTML = `
+      <p style="color:white; text-align:center; margin-top:60px; font-size:14px;">
+        System Booting...
+      </p>
+    `;
+  </script>
+</body>
+</html>
