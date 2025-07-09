@@ -25,19 +25,18 @@
       position: relative;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
-   .cfm-device .screen {
-    background-color: #1a1a1a;
-    width: 89%;
-    height: 81%;
-    margin: 43px auto 0;
-    border: 13px solid #201f1f;
-    border-radius: 12px;
-    color: white;
-    overflow: hidden;
-    display: flex
-;
-    flex-direction: column;
-}
+    .cfm-device .screen {
+      background-color: #1a1a1a;
+      width: 89%;
+      height: 81%;
+      margin: 43px auto 0;
+      border: 13px solid #201f1f;
+      border-radius: 12px;
+      color: white;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
     .cfm-label {
       position: absolute;
       top: 6px;
@@ -118,38 +117,41 @@
       flex-direction: column;
       justify-content: space-between;
     }
-    .stats-grid {
-      background: #e0e0e0;
+    .cfm-panel {
+      background-color: #d6d6d6;
+      border: 2px solid #a0a0a0;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 13px;
       color: black;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      font-size: 12px;
     }
-    .stats-grid div {
-      border: 1px solid #666;
-      padding: 6px;
-      text-align: center;
+    .cfm-box {
+      background-color: white;
+      border: 2px inset #bbb;
+      padding: 4px 8px;
+      min-width: 50px;
+      text-align: right;
     }
-    .tolerance-bar {
-      background: #000;
-      height: 22px;
-      position: relative;
-      border: 1px solid #555;
-    }
-    .tolerance-bar::before {
-      content: '';
-      position: absolute;
-      height: 100%;
-      width: 2px;
-      background: #007bff;
-      left: 50%;
-    }
-    .tolerance-labels {
+    .cfm-row {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      font-size: 12px;
-      padding: 0 5px;
-      color: white;
+      margin-bottom: 4px;
+    }
+    .cfm-label-small {
+      font-weight: 500;
+      margin-right: 4px;
+    }
+    .cfm-icons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 6px;
+    }
+    .cfm-icons img {
+      width: 20px;
+      height: 20px;
+      margin-bottom: 6px;
     }
     .status-button {
       text-align: center;
@@ -160,33 +162,166 @@
       padding: 6px 0;
       margin-top: 4px;
     }
+    .tolerance-bar {
+      background: white;
+      height: 14px;
+      position: relative;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+    }
+    .tolerance-bar .bar-fill {
+      background: blue;
+      height: 100%;
+      width: 12%;
+      margin-left: 38%;
+    }
+    .tolerance-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: white;
+      margin-top: 2px;
+      padding: 0 4px;
+    }
+
+    /* adding new css */
+.bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    background-color: #adb5bd !important;
+    padding: 1px;
+}
+.status-button {
+    text-align: center;
+    background: #88ff5b;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 2px 0;
+    margin-top: -6px;
+}
+
+.tolerance-bar {
+    background: white;
+    height: 23px;
+    position: relative;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+}
+.header-bar .title i {
+    color: #6fc7f4;
+    margin-right: 6px;
+    font-size: 25px;
+}
+
+#dip{
+    position: relative;
+    right:14px;
+}
+#CPK1{
+    position: relative;
+    right:9px;
+}
+
+#cfm2{
+    position: relative;
+    right:7px;
+}
+
+#cfmnam{
+    position: relative;
+    right:14px;
+}
+#cfname{
+    position: relative;
+    right:10px;
+}
+
+#Nsy{
+    
+  height: auto;
+}
+#Ns1 {
+    height: 52px;
+    width: 26px;
+}
+#sy1 {
+    height: 29px;
+    width: 26px;
+}
+/* adding @media quary  */
+
+
+
   </style>
 </head>
 <body>
   <div class="cfm-device">
     <div class="cfm-label">CFM</div>
     <div class="screen">
+
+
+
       <div class="header-bar">
         <div class="title"><i class="fas fa-cog"></i> QpLite 01</div>
-        <div class="datetime" id="datetime-display">--/--/---- --:--:--</div>
+      
         <div class="buttons">
           <button><i class="fas fa-stop"></i></button>
           <button><i class="fas fa-play"></i></button>
         </div>
       </div>
+
+      <!-- adding new nav bar-->
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="datetime" id="datetime-display">--/--/---- --:--:--</div>
+     
+    </div>
+  </nav>
+
+
+       <!-- end -->
       <div class="content">
         <div class="graph-section">
-          <canvas id="crimpChart" height="250"></canvas>
+          <canvas id="crimpChart" height="190"></canvas>
         </div>
         <div class="stats-section">
-          <div class="stats-grid">
-            <div>302.0</div><div>CPK<br>5.62</div>
-            <div>0</div><div>SD<br>0.2</div>
-            <div>2</div><div>Good<br>3</div>
-            <div>0.0</div><div>Bad<br>0.0</div>
+          <div class="cfm-panel d-flex">
+            <div  class="cfm-icons">
+              <img id="Nsy" src="Nsymbol.png" alt="weight">
+              <img id="Ns1" src="n2sybole.png" alt="chart">
+              &nbsp;
+
+               <img  src="^1symbol.png" alt="T1"> 
+               
+              <img id="sy1" src="^2symbole.png" alt="T2">
+              <div style="height: 20px;"></div>
+            </div>
+            <div class="row w-100">
+              <div class="col-6">
+                <div class="cfm-row"><div class="cfm-box">88.7</div><span class="cfm-label-small">lbs</span></div>
+                <div class="cfm-row"><div class="cfm-box">0</div><span class="cfm-label-small">%</span></div>
+                <div class="cfm-row"><div class="cfm-box">2</div><span class="cfm-label-small">%</span></div>
+                <div class="cfm-row"><div class="cfm-box">--</div><span class="cfm-label-small">%</span></div>
+                <div class="cfm-row"><div class="cfm-box">--</div><span class="cfm-label-small">%</span></div>
+              </div>
+              <div class="col-6">
+                <div class="cfm-row"><span class="cfm-label-small" id="cfmnam">CPK</span><div class="cfm-box" id="CPK1">1.18</div></div>
+                <div class="cfm-row"><span class="cfm-label-small" id="cfmnam">SD</span> <div class="cfm-box" >0.7</div><span class="cfm-label-small">%</span></div>
+                <div class="cfm-row"><span class="cfm-label-small" id="cfmnam">Good</span><div class="cfm-box" id="dip">16</div></div>
+                <div class="cfm-row"><span class="cfm-label-small" id="cfmnam">Bad</span><div class="cfm-box" id="cfm2">0</div></div>
+                <div class="cfm-row"><span class="cfm-label-small" id="cfmnam">Prog</span><div class="cfm-box" id="cfname">C*</div></div>
+              </div>
+            </div>
           </div>
-          <div class="tolerance-bar"></div>
-          <div class="tolerance-labels"><span>3.0</span><span>0.0</span><span>5.0</span></div>
+          <div class="tolerance-bar">
+            <div class="bar-fill"></div>
+          </div>
+          <div class="tolerance-labels">
+            <span>-3.0</span>
+            <span>-0.9</span>
+            <span>5.0</span>
+          </div>
           <div class="status-button">Crimp OK</div>
         </div>
       </div>
@@ -194,7 +329,6 @@
     <div class="cfm-logo">QpLite</div>
     <div class="cfm-bottom-label">QPLITE/KOMAX/APR-24/MSWIL/P49/190505</div>
   </div>
-
   <script>
     const ctx = document.getElementById('crimpChart').getContext('2d');
     new Chart(ctx, {
